@@ -115,6 +115,7 @@ Loop {
 	if UseFlasks {
 		; initialize start of auto-flask use
 		ToolTip, UseFlasks On
+        SetTimer, RemoveToolTip, -2000
 		
 		; reset usage timers for all flasks
 		for i in FlaskDurationInit {
@@ -123,6 +124,7 @@ Loop {
 		}
 	} else {
 		ToolTip, UseFlasks Off
+        SetTimer, RemoveToolTip, -2000
 	}
 	return
 
@@ -330,3 +332,7 @@ GuiEscape:
 	Sleep 100
 	MouseMove, x, y
 	Return
+
+RemoveToolTip:
+    ToolTip
+    Return
